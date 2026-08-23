@@ -1,5 +1,8 @@
 {
+  "game": "FIRST_SALVO_2",
   "version": "3.43.1",
-  "asset": "FIRST_SALVO_2.html",
-  "notes": "독립교통 정합성 봉합"
+  "tag": "v3.43.1",
+  "file": "FIRST_SALVO_2.html",
+  "download": "https://github.com/Byanka-Rail/FIRST_SALVO_2/releases/latest/download/FIRST_SALVO_2.html",
+  "notes": "5칸 지휘체계, 기함 수동속력, 전장 생태계, 독립교통 정합성 봉합"
 }
