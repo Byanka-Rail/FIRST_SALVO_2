@@ -1,8 +1,9 @@
 {
   "game": "FIRST_SALVO_2",
-  "version": "3.43.1",
-  "tag": "v3.43.1",
+  "version": "3.43.2",
+  "tag": "v3.43.2",
   "file": "FIRST_SALVO_2.html",
   "download": "https://github.com/Byanka-Rail/FIRST_SALVO_2/releases/latest/download/FIRST_SALVO_2.html",
-  "notes": "5칸 지휘체계, 기함 수동속력, 전장 생태계, 독립교통 정합성 봉합"
+  "sha256": "1b3b1cc6f245120496b15362e9783d476f9557d7bf1522e13a3dc4e3eea86fa9",
+  "notes": "GitHub 앱 업데이트 경로 검증판. 게임 규칙·밸런스·세이브 스키마 변경 없음."
 }
