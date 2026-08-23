@@ -1,9 +1,8 @@
 {
   "game": "FIRST_SALVO_2",
-  "version": "3.43.2",
-  "tag": "v3.43.2",
+  "version": "3.43.3",
+  "tag": "v3.43.3",
   "file": "FIRST_SALVO_2.html",
   "download": "https://github.com/Byanka-Rail/FIRST_SALVO_2/releases/latest/download/FIRST_SALVO_2.html",
-  "sha256": "1b3b1cc6f245120496b15362e9783d476f9557d7bf1522e13a3dc4e3eea86fa9",
-  "notes": "GitHub 앱 업데이트 경로 검증판. 게임 규칙·밸런스·세이브 스키마 변경 없음."
+  "notes": "퀵바 진입 안정화. SHA-256은 이번 배포에서 생략. 전투코어·밸런스·세이브 스키마 변경 없음."
 }
