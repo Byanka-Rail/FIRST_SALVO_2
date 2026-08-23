@@ -42,7 +42,7 @@ import java.util.concurrent.Executors;
 
 public class MainActivity extends Activity {
     private static final String BUILTIN_VERSION = "3.43.1";
-    private static final String SHELL_VERSION = "1.0.0";
+    private static final String SHELL_VERSION = "1.1.0";
     private static final String META_URL = "https://raw.githubusercontent.com/Byanka-Rail/FIRST_SALVO_2/main/latest.json";
     private static final String FALLBACK_DOWNLOAD = "https://github.com/Byanka-Rail/FIRST_SALVO_2/releases/latest/download/FIRST_SALVO_2.html";
     private static final String BASE_URL = "https://firstsalvo.local/";
@@ -184,7 +184,8 @@ public class MainActivity extends Activity {
     private void checkForUpdate(boolean userInitiated) {
         io.execute(() -> {
             try {
-                String raw = readUrl(META_URL, 512 * 1024);
+                String metaUrl = META_URL + (META_URL.contains("?") ? "&" : "?") + "_=" + System.currentTimeMillis();
+                String raw = readUrl(metaUrl, 512 * 1024);
                 JSONObject meta = new JSONObject(raw);
                 String version = meta.optString("version", "").trim();
                 String download = meta.optString("download", FALLBACK_DOWNLOAD).trim();
@@ -220,7 +221,8 @@ public class MainActivity extends Activity {
         toast("업데이트 다운로드 중…");
         io.execute(() -> {
             try {
-                byte[] bytes = readUrlBytes(download, MAX_GAME_BYTES);
+                String downloadUrl = download + (download.contains("?") ? "&" : "?") + "_=" + System.currentTimeMillis();
+                byte[] bytes = readUrlBytes(downloadUrl, MAX_GAME_BYTES);
                 String html = new String(bytes, StandardCharsets.UTF_8);
                 validateGameHtml(html);
                 if (!sha256.isEmpty()) {
@@ -324,10 +326,13 @@ public class MainActivity extends Activity {
         URL url = new URL(urlString);
         HttpURLConnection c = (HttpURLConnection) url.openConnection();
         c.setInstanceFollowRedirects(true);
+        c.setUseCaches(false);
         c.setConnectTimeout(12000);
         c.setReadTimeout(25000);
-        c.setRequestProperty("User-Agent", "FIRST-SALVO-2-Android/1.0");
+        c.setRequestProperty("User-Agent", "FIRST-SALVO-2-Android/1.1");
         c.setRequestProperty("Accept", "*/*");
+        c.setRequestProperty("Cache-Control", "no-cache, no-store, max-age=0");
+        c.setRequestProperty("Pragma", "no-cache");
         int code = c.getResponseCode();
         if (code < 200 || code >= 300) throw new Exception("HTTP " + code);
         try (InputStream in = new BufferedInputStream(c.getInputStream())) {
